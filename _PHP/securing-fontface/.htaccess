@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteRule style.css style.php
+RewriteRule SpoofFont.xxx SpoofFont.php
+

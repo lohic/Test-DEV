@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test jeu</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+	<div id="playground">
+		<div id="background"></div>
+		<div id="sprite1"></div>
+		<div id="groupA">
+			<div id="sprite2"></div>
+		</div>
+		<div id="sprite3"></div>
+		<div id="groupeB">
+			<div id="sprite4"></div>
+		</div>
+	</div>
+	
+
+
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery.gamequery-0.7.1.js"></script>
+	<script>
+
+	var PLAYGROUND_HEIGHT = 250;
+    var PLAYGROUND_WIDTH  = 700;
+
+
+	$("#playground").playground({height: PLAYGROUND_HEIGHT, width: PLAYGROUND_WIDTH})
+		/*.addGroup("background", {width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT})
+		.addSprite("sprite1",{animation: animation1})
+		.addGroup("groupA")
+			.addSprite("sprite2",{animation: animation2}).end()
+		.addSprite("sprite3",{animation: animation3})
+		.addGroup("groupB",{overflow: hidden})
+			.addSprite("sprite4",{animation: animation4});*/
+
+	var background1 = new $.gameQuery.Animation({imageURL: "background1.png"});
+    var background2 = new $.gameQuery.Animation({imageURL: "background2.png"});
+    var background3 = new $.gameQuery.Animation({imageURL: "background3.png"});
+    var background4 = new $.gameQuery.Animation({imageURL: "background4.png"});
+    var background5 = new $.gameQuery.Animation({imageURL: "background5.png"});
+    var background6 = new $.gameQuery.Animation({imageURL: "background6.png"});
+
+    $("#background").
+       .addSprite("background1", {animation: background1,
+                   width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT})
+       .addSprite("background2", {animation: background2,
+                   width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT,
+                   posx: PLAYGROUND_WIDTH})
+       .addSprite("background3", {animation: background3,
+                  width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT})
+       .addSprite("background4", {animation: background4,
+                  width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT,
+                  posx: PLAYGROUND_WIDTH})
+       .addSprite("background5", {animation: background5,
+                  width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT})
+       .addSprite("background6", {animation: background6,
+                  width: PLAYGROUND_WIDTH, height: PLAYGROUND_HEIGHT,
+                  posx: PLAYGROUND_WIDTH});
+
+
+	</script>
+</body>
+</html>

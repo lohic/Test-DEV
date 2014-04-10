@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>jQuery Tilezoom Plugin - 2 Dollars (7356 x 3146)</title>
+	<link rel="stylesheet" type="text/css" media="all" href="js/tilezoom/jquery.tilezoom.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript" src="js/tilezoom/jquery.tilezoom.js"></script>
+	<style type="text/css">
+		html, body {
+			padding: 0;
+			margin: 0;
+		}
+		#container {
+			background-color: black;
+			border: 1px solid black;
+			color: white;   /* for error messages, etc. */
+			overflow: hidden;
+			position: relative;
+			width: 940px;
+			height: 700px;
+			margin: 0 auto;
+			margin-top: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#container').tilezoom({
+				width: 2835,
+				height: 4289,
+				path: 'dest/mona_lisa_files',
+				mousewheel: true
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="page-wrapper"><div id="page">
+		<div id="header">
+			<div class="section">
+				<h1>Mona Lisa (<em>2835 x 4289</em>)</h1>
+			</div>
+		</div>
+		<div id="main">
+			<div id="content" class="clearfix"> 
+				<div id="container">
+					<div class="zoom-holder">
+						<div class="zoom-hotspots">
+							<a style="left:34%;top:78%;" href="#">Lisa's hands</a>
+							<a style="left:86%;top:20%;" href="#" rel="12">Detail of the background</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div></div>
+</body>
+</html>			
