@@ -26,6 +26,7 @@ Dossier contenant des test de développement
 - https://github.com/callumacrae/lynx.io/blob/master/articles/simple-drawing-application-raphaeljs.md
 
 ### JS game and sprite engine :
+
 - https://github.com/batiste/sprite.js
 - https://github.com/oberhamsi/gamejs
 - https://github.com/angrycoding/jgen
@@ -38,8 +39,8 @@ Dossier contenant des test de développement
 - http://craftyjs.com
 
 ### carto :
+
 - http://leafletjs.com
-- 
 
 ## Wordpress :
 - http://solislab.com/blog/how-to-make-shortcodes-user-friendly/
