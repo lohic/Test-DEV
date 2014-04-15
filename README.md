@@ -45,3 +45,4 @@ Dossier contenant des test de développement
 ## Wordpress :
 - http://solislab.com/blog/how-to-make-shortcodes-user-friendly/
 - http://codex.wordpress.org/Shortcode_API
+- http://make.wordpress.org/core/2014/04/07/mysql-in-wordpress-3-9/
