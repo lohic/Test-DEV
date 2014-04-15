@@ -11,6 +11,11 @@ Dossier contenant des test de développement
 - http://unfoldingmaps.org/tutorials/mapprovider-and-tiles.html
 
 
+## liens arduino :
+- http://store.arduino.cc/index.php?main_page=product_info&cPath=16_18&products_id=255
+- http://www.tinkerkit.com/dmx-master-shield/
+
+
 ## liens javascript :
 
 ### RaphaelJS :
@@ -31,3 +36,11 @@ Dossier contenant des test de développement
 - http://docs.emmet.io/abbreviations/syntax/
 - http://rpgjs.com/v2/doc/?p=tuto-creating_map.html#
 - http://craftyjs.com
+
+### carto :
+- http://leafletjs.com
+- 
+
+## Wordpress :
+- http://solislab.com/blog/how-to-make-shortcodes-user-friendly/
+- http://codex.wordpress.org/Shortcode_API
