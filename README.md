@@ -3,6 +3,9 @@ Test-DEV
 
 Dossier contenant des test de développement
 
+## Regex :
+- http://www.regexr.com/2tqef
+
 
 ## liens processing :
 - http://wordnet.princeton.edu
@@ -42,7 +45,25 @@ Dossier contenant des test de développement
 
 - http://leafletjs.com
 
+### Arborescences + diagrammes :
+- https://github.com/sporritt/jsPlumb/
+- http://jsplumbtoolkit.com/
+
+### Animation + interaction :
+- http://ricostacruz.com/jquery.transit/?utm_source=html5weekly
+- http://myressources.com/des-petits-exemples-avec-hammer-js/
+- https://github.com/monospaced/angular-hammer
+- https://github.com/EightMedia/hammer.js/wiki/Plugins
+
 ## Wordpress :
 - http://solislab.com/blog/how-to-make-shortcodes-user-friendly/
 - http://codex.wordpress.org/Shortcode_API
 - http://make.wordpress.org/core/2014/04/07/mysql-in-wordpress-3-9/
+- http://www.smashingmagazine.com/2012/01/04/create-custom-taxonomies-wordpress/
+- https://github.com/thomasgriffin/TGM-Plugin-Activation
+- http://tgmpluginactivation.com
+- http://thomasgriffinmedia.com/blog/2011/09/automatically-install-plugins-with-themes-for-wordpress/
+ 
+## Bootstrap :
+- http://www.layoutit.com/build
+- http://pikock.github.io/bootstrap-magic/app/index.html#!/editor
