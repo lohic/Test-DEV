@@ -1,0 +1,25 @@
+{
+  "name": "test_bower",
+  "version": "1.0.0",
+  "homepage": "https://github.com/lohic/Test-DEV",
+  "authors": [
+    "Loïc Horellou <loic@formidable-studio.net>"
+  ],
+  "description": "test bower and grunt",
+  "main": "index.html",
+  "keywords": [
+    "test"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.1.1",
+    "jquery": "git://github.com/jquery/jquery.git#~2.1.1"
+  }
+}
