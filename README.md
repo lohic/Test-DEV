@@ -55,6 +55,10 @@ Dossier contenant des test de développement
 - https://github.com/monospaced/angular-hammer
 - https://github.com/EightMedia/hammer.js/wiki/Plugins
 
+### Galerie mosaïque
+- http://vnjs.net/www/project/freewall/
+- http://vnjs.net/www/project/freewall/example/fit-zone.html
+
 ## Wordpress :
 - http://solislab.com/blog/how-to-make-shortcodes-user-friendly/
 - http://codex.wordpress.org/Shortcode_API
