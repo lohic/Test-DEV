@@ -7,3 +7,5 @@
 - http://eightmedia.github.io/hammer.js/
 
 - https://github.com/EightMedia/hammer.js/wiki/Getting-Started
+
+- http://riagora.com/mobile/hammer/ (pinch + zoom photo)
