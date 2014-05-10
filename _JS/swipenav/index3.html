@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+	<title>Test HAMMER</title>
+	<link rel="stylesheet" href="">
+
+	<style>
+	
+		html, body, #main {
+			min-height: 100%;
+			height: 100%;
+			padding: 0;
+			margin: 0;
+			position: relative;
+		}
+
+		body {
+			overflow: hidden;
+		}
+		
+		#main{
+			background: silver;
+			text-align: center;
+		}
+
+		p{
+			margin: 0;
+			line-height: 200px;
+		}
+
+	</style>
+
+</head>
+<body>
+	
+	<div id="main">
+		
+		<p>Console</p>
+
+	</div>
+
+
+	<script src="jquery-1.11.0.min.js"></script>
+    <script src="modernizr.js"></script>
+
+    <!--<script src="hammer.js"></script>-->
+    <script src="jquery.hammer-full.min.js"></script>
+
+	<script>
+
+		//http://www.smilingsouls.net/Blog/20110804114957.html
+	    document.addEventListener(
+	        'touchmove',
+	        function(e) {
+	            e.preventDefault();
+	        },
+	        false
+	    );
+
+
+		$(document).ready(function(){
+
+			function handleHammer(ev) {
+	            // disable browser scrolling
+	            ev.gesture.preventDefault();
+
+	            //console.log(ev.type);
+
+	            $('#main p').text( ev.type );
+
+
+	            switch(ev.type) {
+                case 'dragright':
+                case 'dragleft':
+                    break;
+
+               	case 'dragup':
+                case 'dragdown':
+                    break;
+
+                case 'swipeleft':
+
+                    ev.gesture.stopDetect();
+                    break;
+
+                case 'swiperight':
+
+                    ev.gesture.stopDetect();
+                    break;
+
+                case 'swipeup':
+
+                    ev.gesture.stopDetect();
+                    break;
+
+                case 'swipedown':
+
+                    ev.gesture.stopDetect();
+                    break;
+
+                case 'doubletap':
+
+                    ev.gesture.stopDetect();
+                    break;
+
+                case 'tap':
+
+                    ev.gesture.stopDetect();
+                    break;
+
+                case 'release':
+                    // more then 50% moved, navigate
+                    /*if(Math.abs(ev.gesture.deltaX) > pane_width/2) {
+                        if(ev.gesture.direction == 'right') {
+                            //self.prev();
+                        } else {
+                            //self.next();
+                        }
+                    }
+                    else {
+                        //self.showPane(current_pane, true);
+                    }*/
+                    break;
+           		}
+
+	        }
+
+	        //var element = document.getElementById('main');
+	        //new Hammer(element, { dragLockToAxis: true }).on("release dragleft dragright swipeleft swiperight dragup dragdown swipeup swipedown", handleHammer);
+
+	        //$("#main").hammer()
+
+	        var main_hammer_options = { dragLockToAxis: false };
+			$("#main")
+			.hammer(main_hammer_options)
+			.on("doubletap tap release dragleft dragright dragup dragdown swipeleft swipeup swipedown swiperight", handleHammer);
+
+		});
+
+
+	</script>
+
+</body>
+</html>
