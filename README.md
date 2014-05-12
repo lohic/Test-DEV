@@ -72,3 +72,4 @@ Dossier contenant des test de développement
 ## Bootstrap :
 - http://www.layoutit.com/build
 - http://pikock.github.io/bootstrap-magic/app/index.html#!/editor
+- http://ruby.bvision.com/blog/please-stop-embedding-bootstrap-classes-in-your-html
