@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+
+<body data-test="youpi data test" id="target2">
+
+	<h1>Target-2.html</h1>
+	<p>Le contenu de la <a href="#super">cible</a> target-2.html</p>
+	
+	<style>
+
+		#target2{
+		}
+		h1:first-child{
+			margin-top: 0;
+		}
+
+		#target2 a{
+			color: blue;
+		}
+
+		#target2 h1{
+			text-transform: uppercase;
+		}
+
+	</style>
+
+	<script>
+		$(document).ready(function(){
+
+			//alert($('body').data('test'));
+			//alert('super');
+
+		});
+	</script>
+</body>
+</html>
