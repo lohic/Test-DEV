@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Swipe Nav</title>
-    <meta charset='utf-8'>
+    <title>Test HAMMER</title>
     <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
     <style>
 
@@ -75,50 +74,18 @@
         #carousel li.pane4 { background: #cd74e6; }
         #carousel li.pane5 { background: #9fe1e7; }
 
-        #console{
-            position: fixed;
-            top: 10px;
-            left: 10px;
-            background: yellow;
-            color: black;
-            height: 30px;
-            width: 200px;
-            z-index: 900;
-        }
-
     </style>
 </head>
 
 <body>
-    <div id="console"></div>
 
     <div id="carousel">
         <ul>
-            <li class="pane1"><h2>Swipe… 1</h2></li>
-            <li class="pane2"><h2>…or drag… 1</h2></li>
-            <li class="pane3"><h2>…or swipe… 1</h2></li>
-            <li class="pane4"><h2>…or drag… 1</h2></li>
-            <li class="pane5"><h2>Dit is het einde! 1</h2></li>
-        </ul>
-    </div>
-
-    <div id="carousel">
-        <ul>
-            <li class="pane1"><h2>Swipe… 2</h2></li>
-            <li class="pane2"><h2>…or drag… 2</h2></li>
-            <li class="pane3"><h2>…or swipe… 2</h2></li>
-            <li class="pane4"><h2>…or drag… 2</h2></li>
-            <li class="pane5"><h2>Dit is het einde! 2</h2></li>
-        </ul>
-    </div>
-
-    <div id="carousel">
-        <ul>
-            <li class="pane1"><h2>Swipe… 3</h2></li>
-            <li class="pane2"><h2>…or drag… 3</h2></li>
-            <li class="pane3"><h2>…or swipe…3 3</h2></li>
-            <li class="pane4"><h2>…or drag… 3</h2></li>
-            <li class="pane5"><h2>Dit is het einde! 3</h2></li>
+            <li class="pane1"><h2>Swipe...</h2></li>
+            <li class="pane2"><h2>...or <a href="#super">drag</a>...</h2></li>
+            <li class="pane3"><h2>...or swipe...</h2></li>
+            <li class="pane4"><h2>..or drag...</h2></li>
+            <li class="pane5"><h2>Dit is het einde!</h2></li>
         </ul>
     </div>
 
@@ -222,10 +189,6 @@
             // disable browser scrolling
             ev.gesture.preventDefault();
 
-            //console.log(ev.type);
-
-            $('#console').text( ev.type );
-
             switch(ev.type) {
                 case 'dragright':
                 case 'dragleft':
@@ -268,7 +231,7 @@
             }
         }
 
-        new Hammer(element[0], { dragLockToAxis: true }).on("release dragleft dragright swipeleft swiperight dragup dragdown swipeup swipedown", handleHammer);
+        new Hammer(element[0], { dragLockToAxis: true }).on("release dragleft dragright swipeleft swiperight", handleHammer);
     }
 
     var carousel = new Carousel("#carousel");
