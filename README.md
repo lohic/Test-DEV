@@ -69,6 +69,7 @@ Dossier contenant des test de développement
 - http://thomasgriffinmedia.com/blog/2011/09/automatically-install-plugins-with-themes-for-wordpress/
 - *** http://wabeo.fr/jouons-avec-les-meta-boxes/
 - ** http://melchoyce.github.io/dashicons/
+- http://mor10.com/add-proper-pagination-default-wordpress-themes/
  
 ## Bootstrap :
 - http://www.layoutit.com/build
