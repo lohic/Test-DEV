@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
+	<title>test bxSlider 4 LDF</title>
+	<link rel="stylesheet" href="jquery.bxslider.css">
+	<style>
+
+
+		#page{
+			max-width: 500px;
+			margin: 30px;
+		}
+
+		.gallery {
+		    margin-bottom: 20px;
+		    margin-left: -4px;
+
+		}
+
+		.gallery-item {
+		    float: left;
+		    margin: 0 4px 4px 0;
+		    overflow: hidden;
+		    position: relative;
+		}
+
+
+		.gallery figure{
+		    margin:0 4px 4px 0;
+		    float: left;
+		}
+
+
+		.gallery figcaption{
+		    width: 100%;
+		    margin: 0;
+		    padding: 10px;
+		}
+
+		.gallery-columns-1.gallery-size-medium,
+		.gallery-columns-1.gallery-size-thumbnail,
+		.gallery-columns-2.gallery-size-thumbnail,
+		.gallery-columns-3.gallery-size-thumbnail {
+		    display: table;
+		    margin: 0 auto 20px;
+		    width: 100%;
+		}
+
+		.gallery-columns-1 .gallery-item,
+		.gallery-columns-2 .gallery-item,
+		.gallery-columns-3 .gallery-item {
+		    text-align: center;
+		}
+
+		.gallery-columns-3 .gallery-item {
+		    
+		    width: 30%;
+		}
+
+		.gallery-caption {
+		    background-color: rgba(0, 0, 0, 0.7);
+		    box-sizing: border-box;
+		    color: #fff;
+		    font-size: 14px;
+		    line-height: 1.3;
+		    margin: 0;
+		    max-height: 40%;
+		    opacity: 0;
+		    padding: 2px 8px;
+		    position: absolute;
+		    bottom: 0;
+		    left: 0;
+		    text-align: left;
+		    -webkit-transition: opacity 400ms ease;
+		            transition: opacity 400ms ease;
+		    width: 100%;
+		}
+
+		.gallery-caption:before {
+		    box-shadow: 0 -10px 15px #000 inset;
+		    content: "";
+		    height: 100%;
+		    min-height: 49px;
+		    position: absolute;
+		    left: 0;
+		    top: 0;
+		    width: 100%;
+		}
+
+		.gallery-item:hover .gallery-caption {
+		    opacity: 1;
+		}
+
+
+		/**
+		 * GALLERY CSS
+		 */
+		.overlay{
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: white;
+			opacity: 0.5;
+		}
+
+		.viewer{
+			position: fixed;
+			top:20px;
+			right: 20px;
+			/*max-width: 80%;*/
+			border:solid 5px #EF312F;
+			background: white;
+		}
+
+		.viewer .close{
+			position: absolute;
+			width: 30px;
+			height: 30px;
+			background: #EF312F;
+			color:white;
+			top: -5px;
+			right: -5px;
+			z-index: 9999;
+			font-family: sans-serif;
+			text-align: center;
+			line-height: 26px;
+			background-image: url(images/close.png);
+		}
+
+		.viewer .bouton a{
+			background: white;
+			color:#EF312F;
+			font-family: sans-serif;
+			line-height: 26px;
+			font-size: 26px;
+			text-decoration: none;
+		}
+
+		.viewer  .navigation{
+			padding: 10px;
+			position: relative;
+			border-top:solid 5px #EF312F;
+		}
+
+		.viewer .arrow{
+			text-align: right;
+		}
+
+		.viewer .legend{
+			margin: 0;
+		}
+
+		.viewer ul.bxslider{
+			margin: 0;
+		}
+
+		.viewer li{
+			/*width:200px;*/
+		}
+
+		.viewer .bx-wrapper .bx-viewport{
+			box-shadow:none;
+			border:0;
+			padding: 0;
+			margin:0 ;
+			left: 0;
+		}
+
+		.viewer .bx-wrapper{
+			padding: 10px;
+		}
+
+		::selection{
+			background: #EF312F;
+			color:white;
+		}
+
+		/**
+		 * FIN GALLERY CSS
+		 */
+
+		
+		/* Extra Small */
+		@media(max-width:700px){
+			body{
+				margin: 10px;
+			}
+
+			.overlay{
+				opacity: 1;
+			}
+
+			.viewer{
+				top:10px;
+				right: 10px;
+				/*max-width: -webkit-calc(100% - 36px);*/
+			}
+
+			.viewer .arrow{
+				display: none;
+			}
+
+		}
+
+		/* Small */
+		@media(min-width:700px) and (max-width:991px){
+			body{
+			}
+		}
+
+		/* Medium */
+		@media(min-width:992px) and (max-width:1199px){
+			body{
+			}
+		}
+
+		/* Large */
+		@media(min-width:1200px){
+			body{
+			}
+		}
+
+		/**** Retina graphics ****/
+		 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+		 only screen and (min--moz-device-pixel-ratio: 1.5),
+		 only screen and (min-device-pixel-ratio: 1.5){
+
+				.viewer .close{
+					background-image: url(images/close@2x.png);
+					background-size: 30px 30px;
+				}
+
+			}
+
+		/*
+		MATERIEUX :
+		gallery galleryid-191 gallery-columns-3 gallery-size-thumbnail
+
+		LOREM :
+		gallery galleryid-568 gallery-columns-3 gallery-size-thumbnail;
+
+		 */
+
+	</style>
+</head>
+<body>
+
+	<div id="page">
+	
+		<h1>link to image file</h1>
+
+		<div id="gallery-1" class="gallery galleryid-568 gallery-columns-3 gallery-size-thumbnail"><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/Baïonnette-Les-camoufleurs-23-aout-1917.-coll-FK.jpg" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/Baïonnette-Les-camoufleurs-23-aout-1917.-coll-FK-150x150.jpg" class="attachment-thumbnail" alt="Jacques Nam, couverture de La Baïonnette, n°112, 23 août 1917, collection particulière — © Adagp, Paris 2013"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Jacques Nam, couverture de <em>La Baïonnette</em>, n°112, 23 août 1917, collection particulière — © Adagp, Paris 2013
+
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/arnold-lillerkriegszeitung.jpg" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/arnold-lillerkriegszeitung-150x150.jpg" class="attachment-thumbnail" alt="Karl Arnold, «&nbsp;Die Schläge im Osten&nbsp;», in Arnolds Kriegsflugblätter der Liller Kriegszeitung, éditions Liller Kriegszeitung, Lille, 1915 — © Adagp, Paris 2013"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Karl Arnold, «&nbsp;Die Schläge im Osten&nbsp;», in <em>Arnolds Kriegsflugblätter der Liller Kriegszeitung</em>, éditions Liller Kriegszeitung, Lille, 1915 — © Adagp, Paris 2013
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/apollinaire-visée.jpeg" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/apollinaire-visée-150x150.jpeg" class="attachment-thumbnail" alt="Guillaume Apollinaire, «&nbsp;Visée&nbsp;», in Calligrammes. Poèmes de la paix et de la guerre (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Guillaume Apollinaire, «&nbsp;Visée&nbsp;», in <em>Calligrammes. Poèmes de la paix et de la guerre</em> (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/apollinaire-fumées.jpeg" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/apollinaire-fumées-150x150.jpeg" class="attachment-thumbnail" alt="Guillaume Apollinaire, «&nbsp;Fumées&nbsp;», in Calligrammes. Poèmes de la paix et de la guerre (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Guillaume Apollinaire, «&nbsp;Fumées&nbsp;», in <em>Calligrammes. Poèmes de la paix et de la guerre</em> (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/monument-152-RI_loic-beck_1.jpg" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/monument-152-RI_loic-beck_1-150x150.jpg" class="attachment-thumbnail" alt="Victor-Charles Antoine (sculpteur), Monument au 152e Régiment d’Infanterie, 1921-1954, bronze, Hartmannswillerkopf, photographie Loïc Beck, 2013"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Victor-Charles Antoine (sculpteur), <em>Monument au 152e Régiment d’Infanterie</em>, 1921-1954, bronze, Hartmannswillerkopf, photographie Loïc Beck, 2013
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/Cambrai-1a_300dpi.png" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/Cambrai-1a_300dpi-150x150.png" class="attachment-thumbnail" alt="Anonyme, Monument de la Victoire à Cambrai, Georges Armand Vérez (sculpteur), Albert Eugène Le Monnier&nbsp;et Charles Halley (architectes), 1940, tirage photographique, 6 x 8,5 cm, collection Loïc Beck"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Anonyme, <em>Monument de la Victoire à Cambrai</em>, Georges Armand Vérez (sculpteur), Albert Eugène Le Monnier&nbsp;et Charles Halley (architectes), 1940, tirage photographique, 6 x 8,5 cm, collection Loïc Beck
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/mouchoir-2_72dpi.jpg" rel="link_to_file"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/mouchoir-2_72dpi-150x150.jpg" class="attachment-thumbnail" alt="Wir wollen und müssen siegen&nbsp;! (Nous voulons et devons vaincre&nbsp;!), mouchoir en coton, 1914, 62 x 61 cm, collection Jean-Jacques Schueller"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				<em>Wir wollen und müssen siegen&nbsp;!</em> (Nous voulons et devons vaincre&nbsp;!), mouchoir en coton, 1914, 62 x 61 cm, collection Jean-Jacques Schueller
+				</figcaption></figure>
+		</div>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, ratione, velit tempore temporibus esse omnis voluptas sequi ipsum. Minima, non quas animi veniam quo iure voluptas quibusdam ipsam dolorum quaerat.</p>
+
+		<h1>link to media page</h1>
+
+		<div id="gallery-2" class="gallery galleryid-191 gallery-columns-3 gallery-size-thumbnail"><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/arnold-lillerkriegszeitung/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/arnold-lillerkriegszeitung-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Karl Arnold, «&nbsp;Die Schläge im Osten&nbsp;», in Arnolds Kriegsflugblätter der Liller Kriegszeitung, éditions Liller Kriegszeitung, Lille, 1915 — © Adagp, Paris 2013"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Karl Arnold, «&nbsp;Die Schläge im Osten&nbsp;», in <em>Arnolds Kriegsflugblätter der Liller Kriegszeitung</em>, éditions Liller Kriegszeitung, Lille, 1915 — © Adagp, Paris 2013
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/bateau-camoufle-a-sunderland/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/05/bateau-camouflé-à-Sunderland-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Anonyme, Vue d'un navire à quai, port de Sunderland, photographie, Imperial War Museum, Londres — © IWM (Q 20120)"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Anonyme, <em>Vue d’un navire à quai, port de Sunderland</em>, photographie, Imperial War Museum, Londres — © IWM (Q 20120)
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/apollinaire-fumees/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/apollinaire-fumées-150x150.jpeg" rel="link_to_file" class="attachment-thumbnail" alt="Guillaume Apollinaire, «&nbsp;Fumées&nbsp;», in Calligrammes. Poèmes de la paix et de la guerre (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Guillaume Apollinaire, «&nbsp;Fumées&nbsp;», in <em>Calligrammes. Poèmes de la paix et de la guerre</em> (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/cambrai-1a_300dpi/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/Cambrai-1a_300dpi-150x150.png" rel="link_to_file" class="attachment-thumbnail" alt="Anonyme, Monument de la Victoire à Cambrai, Georges Armand Vérez (sculpteur), Albert Eugène Le Monnier&nbsp;et Charles Halley (architectes), 1940, tirage photographique, 6 x 8,5 cm, collection Loïc Beck"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Anonyme, <em>Monument de la Victoire à Cambrai</em>, Georges Armand Vérez (sculpteur), Albert Eugène Le Monnier&nbsp;et Charles Halley (architectes), 1940, tirage photographique, 6 x 8,5 cm, collection Loïc Beck
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/mouchoir-2_72dpi/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/mouchoir-2_72dpi-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Wir wollen und müssen siegen&nbsp;! (Nous voulons et devons vaincre&nbsp;!), mouchoir en coton, 1914, 62 x 61 cm, collection Jean-Jacques Schueller"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				<em>Wir wollen und müssen siegen&nbsp;!</em> (Nous voulons et devons vaincre&nbsp;!), mouchoir en coton, 1914, 62 x 61 cm, collection Jean-Jacques Schueller
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/s01_la-baionnette_n-146_1918_coll-f-k-_mb/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/05/S01_La-Baïonnette_n°-146_1918_coll-F.K._mb-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Lucien Métivet, Marianne et Germania. Histoire d’un bonnet et d’un casque, couverture de La Baïonnette, n°146, 18 avril 1918, collection particulière"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Lucien Métivet, <em>Marianne et Germania. Histoire d’un bonnet et d’un casque</em>, couverture de <em>La Baïonnette</em>, n°146, 18 avril 1918, collection particulière
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/monument-152-ri_loic-beck_1/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/monument-152-RI_loic-beck_1-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Victor-Charles Antoine (sculpteur), Monument au 152e Régiment d’Infanterie, 1921-1954, bronze, Hartmannswillerkopf, photographie Loïc Beck, 2013"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Victor-Charles Antoine (sculpteur), <em>Monument au 152e Régiment d’Infanterie</em>, 1921-1954, bronze, Hartmannswillerkopf, photographie Loïc Beck, 2013
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/beeh-rene-tranchee/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/05/Beeh-René-Tranchée-150x150.jpg" class="attachment-thumbnail" alt="René Beeh, Tranchée, fusain sur papier vélin, s.d.
+Musée d’Art moderne et contemporain de Strasbourg"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				René Beeh, <em>Tranchée</em>, fusain sur papier vélin, s.d.
+Musée d’Art moderne et contemporain de Strasbourg
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/baionnette-les-camoufleurs-23-aout-1917-coll-fk/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/Baïonnette-Les-camoufleurs-23-aout-1917.-coll-FK-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Jacques Nam, couverture de La Baïonnette, n°112, 23 août 1917, collection particulière — © Adagp, Paris 2013"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Jacques Nam, couverture de <em>La Baïonnette</em>, n°112, 23 août 1917, collection particulière — © Adagp, Paris 2013
+
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon landscape">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/max-beckmann-la-petite-operation-1915-pointe-seche-strasbourg-mamcs/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/05/Max-Beckmann-La-Petite-opération-1915-pointe-sèche-Strasbourg-MAMCS-150x150.jpg" rel="link_to_file" class="attachment-thumbnail" alt="Max Beckmann, Kleine Operation (Petite opération), 1915, eau-forte sur papier, Musée d’Art moderne et contemporain, Strasbourg — © Adagp, Paris 2013– Photographie&nbsp;: Mathieu Bertola, Musées de Strasbourg"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Max Beckmann, <em>Kleine Operation</em> (Petite opération), 1915, eau-forte sur papier, Musée d’Art moderne et contemporain, Strasbourg — © Adagp, Paris 2013– Photographie&nbsp;: Mathieu Bertola, Musées de Strasbourg
+				</figcaption></figure><figure class="gallery-item">
+			<div class="gallery-icon portrait">
+				<a href="http://localhost:8888/LDF-Portail/materiaux/apollinaire-visee/"><img width="150" height="150" src="http://localhost:8888/LDF-Portail/wp-content/uploads/2014/02/apollinaire-visée-150x150.jpeg" rel="link_to_file" class="attachment-thumbnail" alt="Guillaume Apollinaire, «&nbsp;Visée&nbsp;», in Calligrammes. Poèmes de la paix et de la guerre (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris"></a>
+			</div>
+				<figcaption class="wp-caption-text gallery-caption">
+				Guillaume Apollinaire, «&nbsp;Visée&nbsp;», in <em>Calligrammes. Poèmes de la paix et de la guerre</em> (1913-1916), Paris, Mercure de France, 1918, collection Bibliothèque nationale de France, Paris
+				</figcaption></figure>
+		</div>
+
+	</div>
+
+
+		
+
+
+
+	<script src="jquery-1.11.0.min.js"></script>
+	<script src="jquery.bxslider.min.js"></script>
+	<script>
+	$(document).ready(function(){
+
+		// QUAND ON CLIQUE SUR UN LIEN D'UNE GALLERIE
+		$('.gallery a').each(function(){
+			$(this).click(function(event){
+
+				// on prépare le viewer
+				$('body').append('<div class="overlay"></div>'+
+					'<div class="viewer">'+
+					'<div class="close"></div>'+
+					'<ul class="bxslider"></ul>'+
+					'<div class="navigation">'+
+					'<div class="arrow"><span id="slider-prev" class="bouton"></span> <span id="slider-next" class="bouton"></span></div>'+
+					'<p class="legend"></p>'+
+					'</div>');
+
+				//var listeImages = '';
+
+				var gallerieID =  '#'+$(this).parent().parent().parent().attr('id') ;
+
+				$(gallerieID+' a').each(function(){
+					var li = $('<li>').append(
+						$('<img>')
+						.attr( "src" , $(this).attr("href") ) 
+						.attr( "title" , $(this).attr("title") ) 
+					);
+					$('.bxslider').append(li);
+				});
+
+				var selectedID = $(this).parent().parent().index(gallerieID+' .gallery-item');
+
+				slider(selectedID);
+
+				event.preventDefault();
+
+			});
+
+		});
+
+		function slider( selectedID ){
+			
+
+			$slider = $('.bxslider').bxSlider({
+				speed: 150,
+				mode: 'horizontal',
+				pager: false,
+				startSlide: selectedID,
+				adaptiveHeight: true,
+				infiniteLoop:false,
+				nextSelector: '#slider-next',
+				prevSelector: '#slider-prev',
+				nextText: '>',
+				prevText: '<',
+				captions: false,
+				onSliderLoad: function(index){
+					// on affiche la légende
+					// et on adapte la dimension verticale si nécessaire
+					legendAndSize(index);
+
+					/*$('.bxslider img').load(function(){
+						$slider.reloadSlider();
+					});*/
+				},
+				onSlideBefore: function($slideElement, oldIndex, index){
+					// on affiche la légende
+					// et on adapte la dimension verticale si nécessaire
+					legendAndSize(index);
+				},
+			});
+
+			// on active les touches clavier
+			$(document).keydown(function(event){
+				if(event.which == 39){
+					//console.log('flêche droite');
+					$slider.goToNextSlide();
+				}
+				if(event.which == 37){
+					//console.log('flêche gauche');
+					$slider.goToPrevSlide();
+				}
+			});
+
+			// fermeture sur le bouton
+			$('.close').click(function(event){
+				$('.viewer').slideUp('slow', function(){
+					$slider.destroySlider();
+					$('.viewer').remove();
+					$('.overlay').remove();
+				});	
+			});
+
+			// fermeture sur click de l'overlay
+			$('.overlay').click(function(event){
+				$('.close').trigger('click');
+			})
+
+			/**
+			 * on affiche la légende et on adapte la dimension verticale si nécessaire
+			 * @param  {[type]} index [description]
+			 */
+			function legendAndSize(index){
+
+				console.log(index);
+
+				$('.bxslider li').eq(index).find('img').load(function(){
+					//$('.viewer').width( $('.bxslider li').eq(index).find('img').width() );
+				});
+
+			
+				// on affiche la légende
+				var legende = $('.bxslider li').eq(index).find('img').attr('title');
+				if( legende == "" ) legende = "Pas de légende.";
+
+				$('.legend')
+				.text(legende)
+				.css('opacity',0)
+				.animate({
+					opacity: 1,
+				}, 1000);
+
+				// on ajuste la taille verticale
+				/*var navH = $(".navigation").outerHeight(true);
+				var imgH = $('.bxslider li').eq(index).find('img').height();
+				var sliderH = $(window).height() - 
+								parseInt( $('.viewer').css('top') )*2 -
+								parseInt( $('.viewer').css('border-width') )*2 -
+								parseInt( $('.bx-wrapper').css('padding-top') )*2 -
+								navH;*/
+
+				// Afficher / Masquer les boutons de navigation
+				if(index == 0){
+					$("#slider-prev").hide();
+				}else{
+					$("#slider-prev").show();
+				}
+				
+				if(index == parseInt($slider.getSlideCount())-1){
+					$("#slider-next").hide();
+				}else{
+					$("#slider-next").show();
+				}
+				
+
+				/*if(imgH > sliderH){
+					$('.bxslider li').eq(index).find('img').height( sliderH );
+					$('.bxslider li').eq(index).find('img').width('auto');
+				}*/
+			}
+		}		
+		
+	});
+	
+	</script>
+</body>
+</html>
