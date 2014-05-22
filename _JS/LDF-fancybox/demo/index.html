@@ -36,22 +36,17 @@
 			 */
 
 			$('.fancybox-buttons').fancybox({
-				//openEffect  : 'fade',
-				//closeEffect : 'fade',
 
 				prevEffect : 'none',
 				nextEffect : 'none',
 
 				wrapCSS    : 'fancybox-custom',
 
-				//topRatio : 0,
-				//leftRatio: 1,
-
 				closeBtn  : true,
 				arrows : true,
 				loop : false,
 
-				margin:30,
+				margin:10,
 
 				padding : 0,
 
@@ -62,9 +57,9 @@
 					//buttons	: {}
 				},
 
-				/*afterLoad : function() {
-					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
-				}*/
+				afterLoad : function() {
+					this.title = '<strong>'+(this.index + 1) + ' / ' + this.group.length +'</strong>'+ (this.title ? ' — ' + this.title : '');
+				}
 			});
 
 
@@ -80,11 +75,17 @@
 
 		.fancybox-custom{
 			box-shadow: none;
-			border: solid 5px red;
+			border: solid 5px #ef312f;
 			position: fixed !important;
-			top: 30px !important;
-			right:30px !important;
+			top: 0px !important;
+			right:0px !important;
 			left:auto !important;
+			max-width: calc(100% - 60px - 10px) !important;
+			margin: 30px;
+		}
+
+		.fancybox-custom .fancybox-inner{
+			max-width:100%;
 		}
 
 		.fancybox-custom .fancybox-skin{
@@ -93,11 +94,12 @@
 		}
 
 		.fancybox-custom .fancybox-title{
-			border-top: solid 5px red;
+			border-top: solid 5px #ef312f;
 		}
 
 		.fancybox-custom .fancybox-title-inside-wrap{
 			padding: 10px 100px 10px 10px;
+			color: #000;
 		}
 
 		.fancybox-custom .fancybox-nav span{
@@ -109,8 +111,8 @@
 			background-size: 30px 30px;
 			width: 30px;
 			height: 30px;
-			top: -5px;
-			right: -5px;
+			top: -2px;
+			right: -2px;
 		}
 
 	</style>
