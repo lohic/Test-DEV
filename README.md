@@ -70,6 +70,7 @@ Dossier contenant des test de développement
 - *** http://wabeo.fr/jouons-avec-les-meta-boxes/
 - ** http://melchoyce.github.io/dashicons/
 - http://mor10.com/add-proper-pagination-default-wordpress-themes/
+- http://wordpress.stackexchange.com/questions/116058/how-to-use-a-dedicated-template-for-the-custom-post-type-from-a-plugin
  
 ## Bootstrap :
 - http://www.layoutit.com/build
