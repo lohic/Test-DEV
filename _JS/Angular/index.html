@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr" ng-app="phonecatApp">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>test Angular</title>
+	<link rel="stylesheet" href="">
+	<script src="js/angular.min.js"></script>
+	<script src="app/controller.js"></script>
+	<script>
+
+	// https://docs.angularjs.org/tutorial/step_03
+
+	/*describe('PhoneListCtrl', function(){
+
+		beforeEach(module('phonecatApp'));
+
+		it('should create "phones" model with 3 phones', inject(function($controller) {
+			var scope = {},
+			    ctrl = $controller('PhoneListCtrl', {$scope:scope});
+
+			expect(scope.phones.length).toBe(3);
+		}));
+
+	});*/
+
+	</script>
+</head>
+
+<body ng-controller="PhoneListCtrl">
+
+	<p>Hello, {{name}}!</p>
+	
+	<p>Nothing here {{'yet' + '!'}}</p>
+
+	<p>1 + 2 = {{ 1 + 2 }}</p>
+
+	<p>--------------------------------</p>
+
+	<ul>
+		<li ng-repeat="phone in phones">
+			{{phone.name}}
+			<p>{{phone.snippet}}</p>
+		</li>
+	</ul>
+
+	<p>Total number of phones: {{phones.length}}</p>
+
+	<p>--------------------------------</p>
+
+	<table>
+		<tr><th>row number</th></tr>
+		<tr ng-repeat="i in [0, 1, 2, 3, 4, 5, 6, 7]"><td>{{i+1}}</td></tr>
+	</table>
+
+	<p>--------------------------------</p>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				<!--Sidebar content-->
+
+				Search: <input ng-model="query">
+
+			</div>
+			<div class="col-md-10">
+			<!--Body content-->
+
+				<ul class="phones">
+					<li ng-repeat="phone in phones | filter:query">
+						{{phone.name}}
+						<p>{{phone.snippet}}</p>
+					</li>
+				</ul>
+
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>
